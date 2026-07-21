@@ -25,6 +25,8 @@ document itself.
 Do not hand-edit `index.html`. Rebuild and reverify through the SFHS import
 workflow before replacing it.
 
+See `GITHUB-PAGES-RELEASE.md` for the live deployment proof.
+
 ## License
 
 The supplied game package did not contain a license. Public availability does
