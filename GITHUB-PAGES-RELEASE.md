@@ -1,80 +1,39 @@
-# HOMEOSTASIS GitHub Pages release proof
+# HOMEOSTASIS GitHub Pages publication record
 
-Date: 2026-07-21
+Date: 2026-07-23
 
 ## WHAT WAS DONE
 
-- Created the public `falloutmule/homeostasis` GitHub repository.
-- Published the previously verified SFHS artifact unchanged as root
-  `index.html`.
-- Added provenance, release hashes, source/release policy, and the required
-  SFHS and PixiJS MIT notices without adding a license grant for HOMEOSTASIS.
-- Enabled HTTPS GitHub Pages from `main` at `/` with `.nojekyll`.
+- Published the exact SFHS-packed HOMEOSTASIS Pixi-first artifact as root `index.html`.
+- Updated release identity and provenance metadata.
+- Source provenance is local canonical SFHS `main@73f34ac`; the SFHS checkout has no configured public remote.
 
 ## WHAT WAS VERIFIED
 
-- GitHub Pages build completed successfully for the release commit.
-- The live URL returned HTTP 200 with `text/html; charset=utf-8`.
-- The downloaded live file was 542,777 bytes and had SHA-256
-  `e8f94463a2851c322c395541cb47d7518ddce32e0870c77ab8c3dd889fb5e469`,
-  exactly matching the SFHS-verified local artifact.
-- Live Chromium ran in this order: Samsung Galaxy S21 Ultra portrait
-  emulation, Samsung Galaxy S21 Ultra landscape emulation, desktop Chromium.
-- Every profile reached the running lifecycle phase, passed
-  `window.CR.runFullSelfCheck()`, created both required render surfaces, made
-  exactly one document request, and emitted no retained browser signal.
-- Samsung portrait additionally passed touch-drag movement and touch
-  Engage/Resolve switching. Desktop passed keyboard movement and Space
-  Engage/Resolve switching.
-- Human screenshot review confirmed the visible world, HUD, pause button,
-  stance control, and Resolve feedback at all three target sizes.
-
-## WHAT FAILED
-
-The first live desktop proof attempt used the touch-only Playwright `tap()` API
-in a non-touch desktop context. Samsung had already passed. The proof harness
-was corrected to use `click()` for desktop and the complete ordered live proof
-then passed. No site code or release artifact changed.
+- Local canonical pack and verifier passed with no findings.
+- The artifact is one self-contained HTML document with no runtime external URLs.
+- Automated Chromium proof passed Samsung Galaxy S21 Ultra portrait and landscape emulation plus desktop Chromium.
+- The Pixi migration gate proved one visible Pixi/WebGL canvas, no visible Canvas2D world, deterministic scripted state parity, controls, resize, and exact-artifact network boundaries.
 
 ## CURRENT EXACT STATE
 
 - Repository: `https://github.com/falloutmule/homeostasis`
 - Pages source: `main` branch, repository root
-- Published build ID: `homeostasis-40d9487cfae1`
-- Published artifact SHA-256:
-  `e8f94463a2851c322c395541cb47d7518ddce32e0870c77ab8c3dd889fb5e469`
-- Runtime external request allowlist remains empty.
-- The required bundled PixiJS adapter contains third-party `new Function`
-  renderer feature detection/code generation; authored HOMEOSTASIS code does
-  not. This is disclosed in `SOURCE_RELEASE_POLICY.md`.
+- Canonical source: local SFHS `main@73f34ac`
+- Published build ID: `homeostasis-63dc72d4b4fe`
+- Artifact: 588,969 bytes
+- Artifact SHA-256: `37ef89dc8eac7d2a0a7624abb81d10af5406eba927ac52efbc81dd7175dfd947`
+- Source SHA-256: `63dc72d4b4fe974ca77712650534fe69aa78acfd040bb2e7d2b27b2dbfc6c8cd`
 
 ## REMAINING BLOCKERS
 
-- Automated Samsung results are device emulation and are not a physical-device
-  feel or performance verdict.
-- HOMEOSTASIS has no third-party reuse license. Public availability is not
-  permission to copy, modify, or redistribute it.
+- `BLOCKED_ON_PHYSICAL_SAMSUNG`: direct Samsung Galaxy S21 Ultra portrait and landscape acceptance has not been performed.
+- Final release verdict remains `BLOCKED`; automated/emulated evidence is not a physical-device substitute.
 
 ## NEXT ACTIONABLE STEP
 
-No further action is required for this release. A future artifact replacement
-must repeat the SFHS and exact live-artifact checks in
-`SOURCE_RELEASE_POLICY.md`.
-
-## EVIDENCE
-
-- `RELEASE.json`
-- `SOURCE_RELEASE_POLICY.md`
-- `NOTICE.md`
-- `THIRD_PARTY_NOTICES.md`
-- Run-local live Chromium report and screenshots were retained outside the
-  release repository under the SFHS ignored evidence directory.
-
-## GITHUB PAGES URL
-
-https://falloutmule.github.io/homeostasis/
+Run and retain direct physical Samsung Galaxy S21 Ultra acceptance evidence before considering `RELEASE_PASS`.
 
 ## PASS/FAIL
 
-**PASS** - the public Pages site serves the exact verified artifact and the
-ordered live Chromium proof passes.
+**AUTOMATED_PASS / BLOCKED_ON_PHYSICAL_SAMSUNG**
