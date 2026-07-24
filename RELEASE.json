@@ -1,12 +1,12 @@
 {
   "schema": "homeostasis.release@1",
-  "releasedOn": "2026-07-23",
-  "buildId": "homeostasis-63dc72d4b4fe",
-  "bytes": 588969,
-  "artifactSha256": "37ef89dc8eac7d2a0a7624abb81d10af5406eba927ac52efbc81dd7175dfd947",
-  "sourceSha256": "63dc72d4b4fe974ca77712650534fe69aa78acfd040bb2e7d2b27b2dbfc6c8cd",
+  "releasedOn": "2026-07-24",
+  "buildId": "homeostasis-f9724aa9fefe",
+  "bytes": 592964,
+  "artifactSha256": "97207cfa05ce4ae4db61677438b344d4a0c6ac528fcaed336ba483e268d47d6d",
+  "sourceSha256": "f9724aa9fefeb0f1b8a4abf0a4d225a3b17ec7ef8b85bbdf9bad258f888af83f",
   "prototypeSha256": "f9a32ecfeb3b9d4562dd3fdf02f2a6191511781cecc2659846d7e1e804266dbc",
-  "sfhsBaseline": "73f34ac",
+  "sfhsBaseline": "6df0194",
   "bundledDependencies": ["SFHS", "pixi.js@8.19.0"],
   "runtimeExternalUrls": []
 }
