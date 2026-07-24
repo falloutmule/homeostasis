@@ -16,11 +16,14 @@ Date: 2026-07-24
 - The Pixi migration gate proved one visible Pixi/WebGL canvas, no visible Canvas2D world, deterministic scripted state parity, controls, resize, and exact-artifact network boundaries.
 - Portrait-first layout proof showed the complete title, compact non-overlapping HUD, safe response and pause controls, and no rotate prompt.
 - Fullscreen entered and exited from title and Pause button gestures while preserving the active run and recomputing viewport and hit targets.
+- Public release commit `b371107f6cb799305b48c557b6ff5e1c1661b60a` was pushed to `main`.
+- The live Pages document returned HTTP 200 with 592,964 bytes and SHA-256 `97207cfa05ce4ae4db61677438b344d4a0c6ac528fcaed336ba483e268d47d6d`, exactly matching canonical.
 
 ## CURRENT EXACT STATE
 
 - Repository: `https://github.com/falloutmule/homeostasis`
 - Pages source: `main` branch, repository root
+- Artifact release commit: `b371107f6cb799305b48c557b6ff5e1c1661b60a`
 - Canonical source: local SFHS `main@6df0194`
 - Published build ID: `homeostasis-f9724aa9fefe`
 - Artifact: 592,964 bytes
@@ -36,6 +39,10 @@ Date: 2026-07-24
 
 Run and retain direct physical Samsung Galaxy S21 Ultra acceptance evidence in
 portrait and landscape before considering `RELEASE_PASS`.
+
+Live test URL:
+
+`https://falloutmule.github.io/homeostasis/?v=b371107`
 
 ## PASS/FAIL
 
