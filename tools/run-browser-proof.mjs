@@ -119,6 +119,8 @@ async function runSamsungInteraction(bytes) {
   let hitTargetEvidence;
   let resultEvidence;
   let renderEvidence;
+  let landscapeEvidence;
+  let portraitReturnEvidence;
   try {
     await page.goto(server.url, { waitUntil: "load" });
     titleEvidence = await page.evaluate(() => {
@@ -208,8 +210,13 @@ async function runSamsungInteraction(bytes) {
     hitTargetEvidence = hitEvidence;
     const rotationBefore = await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.readState());
     await page.setViewportSize({ width: 854, height: 384 });
-    await page.waitForTimeout(80);
-    const landscapeResize = await page.evaluate(() => {
+    await page.waitForFunction(() => {
+      const probe = globalThis.__HOMEOSTASIS_TEST__.readRenderProbe();
+      const canvas = probe.visibleCanvas?.rect;
+      return globalThis.document.querySelector("#fixture-shell")?.dataset.layout === "wide" &&
+        canvas?.width === 854 && canvas?.height === 384;
+    });
+    landscapeEvidence = await page.evaluate(() => {
       const probe = globalThis.__HOMEOSTASIS_TEST__.readRenderProbe();
       const stance = globalThis.document.querySelector("#stanceBtn").getBoundingClientRect();
       const pause = globalThis.document.querySelector("#pauseBtn").getBoundingClientRect();
@@ -217,8 +224,13 @@ async function runSamsungInteraction(bytes) {
       return { canvas: probe.visibleCanvas?.rect, oneCanvas: probe.visibleCanvasCount === 1, usable: probe.webgl?.contextUsable === true, stanceInside: stance.x >= 0 && stance.y >= 0 && stance.x + stance.width <= globalThis.innerWidth && stance.y + stance.height <= globalThis.innerHeight, stanceTarget: buttonAt(stance), pauseTarget: buttonAt(pause), layout: globalThis.document.querySelector("#fixture-shell").dataset.layout, state: globalThis.__HOMEOSTASIS_TEST__.readState() };
     });
     await page.setViewportSize({ width: 384, height: 854 });
-    await page.waitForTimeout(80);
-    const portraitReturn = await page.evaluate(() => {
+    await page.waitForFunction(() => {
+      const probe = globalThis.__HOMEOSTASIS_TEST__.readRenderProbe();
+      const canvas = probe.visibleCanvas?.rect;
+      return globalThis.document.querySelector("#fixture-shell")?.dataset.layout === "portrait" &&
+        canvas?.width === 384 && canvas?.height === 854;
+    });
+    portraitReturnEvidence = await page.evaluate(() => {
       const stance = globalThis.document.querySelector("#stanceBtn").getBoundingClientRect(); const pause = globalThis.document.querySelector("#pauseBtn").getBoundingClientRect();
       const buttonAt = (rect) => globalThis.document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2)?.closest("button")?.id ?? null;
       return { stanceTarget: buttonAt(stance), pauseTarget: buttonAt(pause), layout: globalThis.document.querySelector("#fixture-shell").dataset.layout };
@@ -274,9 +286,9 @@ async function runSamsungInteraction(bytes) {
       pauseClearLayout: layout.pausePathogenOverlap === false && layout.pauseHudOverlap === false && layout.stanceHudOverlap === false,
       stanceInsideViewport: layout.stanceInsideViewport,
       hitTargets: hitEvidence.stance === "stanceBtn" && hitEvidence.pause === "pauseBtn",
-      landscapeResize: landscapeResize.oneCanvas && landscapeResize.usable && landscapeResize.stanceInside && landscapeResize.canvas?.width === 854 && landscapeResize.canvas?.height === 384 && landscapeResize.layout === "wide",
-      rotationPreservedRun: landscapeResize.state.seed === rotationBefore.seed && landscapeResize.state.scene === rotationBefore.scene && landscapeResize.state.ticks >= rotationBefore.ticks,
-      touchTargetsAfterResize: landscapeResize.stanceTarget === "stanceBtn" && landscapeResize.pauseTarget === "pauseBtn" && portraitReturn.stanceTarget === "stanceBtn" && portraitReturn.pauseTarget === "pauseBtn" && portraitReturn.layout === "portrait",
+      landscapeResize: landscapeEvidence.oneCanvas && landscapeEvidence.usable && landscapeEvidence.stanceInside && landscapeEvidence.canvas?.width === 854 && landscapeEvidence.canvas?.height === 384 && landscapeEvidence.layout === "wide",
+      rotationPreservedRun: landscapeEvidence.state.seed === rotationBefore.seed && landscapeEvidence.state.scene === rotationBefore.scene && landscapeEvidence.state.ticks >= rotationBefore.ticks,
+      touchTargetsAfterResize: landscapeEvidence.stanceTarget === "stanceBtn" && landscapeEvidence.pauseTarget === "pauseBtn" && portraitReturnEvidence.stanceTarget === "stanceBtn" && portraitReturnEvidence.pauseTarget === "pauseBtn" && portraitReturnEvidence.layout === "portrait",
       fullscreenEnterExit: !fullscreenSupported || (titleEntered && titleExited && pauseEntered && pauseExited),
       fullscreenRecomputedViewport: !fullscreenSupported || (titleRevisionAfter > titleRevisionBefore && pauseAfterFullscreen.viewportRevision > pauseBeforeFullscreen.viewportRevision),
       fullscreenPreservedRun: !fullscreenSupported || (pauseAfterFullscreen.seed === pauseBeforeFullscreen.seed && pauseAfterFullscreen.scene === "pause" && pauseAfterFullscreen.ticks === pauseBeforeFullscreen.ticks && pauseAfterFullscreen.player.x === pauseBeforeFullscreen.player.x && pauseAfterFullscreen.player.y === pauseBeforeFullscreen.player.y),
@@ -306,6 +318,8 @@ async function runSamsungInteraction(bytes) {
     title: titleEvidence,
     fullscreen: fullscreenEvidence,
     hitTargets: hitTargetEvidence,
+    landscape: landscapeEvidence,
+    portraitReturn: portraitReturnEvidence,
     result: resultEvidence,
     render: renderEvidence,
     requests: Object.freeze(requests),

@@ -127,28 +127,28 @@
       "titleEntered": true,
       "titleExited": true,
       "titleRevisionBefore": 2,
-      "titleRevisionAfter": 8,
+      "titleRevisionAfter": 7,
       "pauseEntered": true,
       "pauseExited": true,
       "pauseBefore": {
         "buildId": "HOMEOSTASIS-VS-006-RESPONSIVE-FULLSCREEN",
         "scene": "pause",
-        "seed": "HOST-MSHFVEHJ",
-        "time": 12.116666666666848,
-        "ticks": 727,
+        "seed": "HOST-MSHG4R33",
+        "time": 12.03333333333351,
+        "ticks": 722,
         "mode": "resolve",
         "player": {
           "x": 1300,
           "y": 600,
           "hp": 100
         },
-        "bacteria": 41,
+        "bacteria": 46,
         "bossFraction": 1,
         "bossDead": false,
-        "inflammation": 0.07410998333331442,
-        "safeLow": 0.2651306666666667,
-        "safeHigh": 0.5555493333333333,
-        "tissueIntegrity": 0.9538283225260074,
+        "inflammation": 0.09067309166664847,
+        "safeLow": 0.27131733333333335,
+        "safeHigh": 0.5667626666666666,
+        "tissueIntegrity": 0.9546980037259966,
         "xp": 10,
         "level": 0,
         "upgrades": {},
@@ -157,7 +157,7 @@
         "resolvePulse": 0,
         "responseStatus": "RESOLVING · ATTACKS PAUSED · INFLAMMATION FALLING ↓",
         "stanceText": "RESOLVINGTap to Engage",
-        "repairingTissues": 1,
+        "repairingTissues": 2,
         "fullscreen": false,
         "layout": "portrait",
         "viewportRevision": 14,
@@ -172,22 +172,22 @@
       "pauseAfter": {
         "buildId": "HOMEOSTASIS-VS-006-RESPONSIVE-FULLSCREEN",
         "scene": "pause",
-        "seed": "HOST-MSHFVEHJ",
-        "time": 12.116666666666848,
-        "ticks": 727,
+        "seed": "HOST-MSHG4R33",
+        "time": 12.03333333333351,
+        "ticks": 722,
         "mode": "resolve",
         "player": {
           "x": 1300,
           "y": 600,
           "hp": 100
         },
-        "bacteria": 41,
+        "bacteria": 46,
         "bossFraction": 1,
         "bossDead": false,
-        "inflammation": 0.07410998333331442,
-        "safeLow": 0.2651306666666667,
-        "safeHigh": 0.5555493333333333,
-        "tissueIntegrity": 0.9538283225260074,
+        "inflammation": 0.09067309166664847,
+        "safeLow": 0.27131733333333335,
+        "safeHigh": 0.5667626666666666,
+        "tissueIntegrity": 0.9546980037259966,
         "xp": 10,
         "level": 0,
         "upgrades": {},
@@ -196,7 +196,7 @@
         "resolvePulse": 0,
         "responseStatus": "RESOLVING · ATTACKS PAUSED · INFLAMMATION FALLING ↓",
         "stanceText": "RESOLVINGTap to Engage",
-        "repairingTissues": 1,
+        "repairingTissues": 2,
         "fullscreen": false,
         "layout": "portrait",
         "viewportRevision": 19,
@@ -212,6 +212,62 @@
     "hitTargets": {
       "stance": "stanceBtn",
       "pause": "pauseBtn"
+    },
+    "landscape": {
+      "canvas": {
+        "width": 854,
+        "height": 384
+      },
+      "oneCanvas": true,
+      "usable": true,
+      "stanceInside": true,
+      "stanceTarget": "stanceBtn",
+      "pauseTarget": "pauseBtn",
+      "layout": "wide",
+      "state": {
+        "buildId": "HOMEOSTASIS-VS-006-RESPONSIVE-FULLSCREEN",
+        "scene": "play",
+        "seed": "HOST-MSHG4R33",
+        "time": 7.566666666666645,
+        "ticks": 454,
+        "mode": "resolve",
+        "player": {
+          "x": 381.25,
+          "y": 600,
+          "hp": 100
+        },
+        "bacteria": 36,
+        "bossFraction": 1,
+        "bossDead": false,
+        "inflammation": 0.5872470583333166,
+        "safeLow": 0.25894399999999995,
+        "safeHigh": 0.5443359999999999,
+        "tissueIntegrity": 0.9700017938472933,
+        "xp": 10,
+        "level": 0,
+        "upgrades": {},
+        "result": null,
+        "cameraShake": 0,
+        "resolvePulse": 0,
+        "responseStatus": "RESOLVING · ATTACKS PAUSED · INFLAMMATION FALLING ↓",
+        "stanceText": "RESOLVINGTap to Engage",
+        "repairingTissues": 7,
+        "fullscreen": false,
+        "layout": "wide",
+        "viewportRevision": 11,
+        "canvas": {
+          "cssW": 854,
+          "cssH": 384,
+          "backingW": 1708,
+          "backingH": 768,
+          "dpr": 2
+        }
+      }
+    },
+    "portraitReturn": {
+      "stanceTarget": "stanceBtn",
+      "pauseTarget": "pauseBtn",
+      "layout": "portrait"
     },
     "result": {
       "scene": "result",
@@ -234,7 +290,7 @@
       },
       "webglSurface": true,
       "visibleCanvasCount": 1,
-      "meaningfulObjectCount": 136,
+      "meaningfulObjectCount": 134,
       "destroyed": false,
       "webgl": {
         "contextLost": false,
@@ -246,7 +302,7 @@
       }
     },
     "requests": [
-      "http://127.0.0.1:55834/index.html"
+      "http://127.0.0.1:50350/index.html"
     ],
     "browserSignals": [],
     "findings": [],
@@ -265,7 +321,7 @@
       "noFindings": true
     },
     "requests": [
-      "http://127.0.0.1:51657/index.html"
+      "http://127.0.0.1:58917/index.html"
     ],
     "browserSignals": [],
     "findings": [],
