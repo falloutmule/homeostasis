@@ -133,7 +133,6 @@ async function runSamsungInteraction(bytes) {
       const rect = title.getBoundingClientRect(); const panelRect = panel.getBoundingClientRect();
       return { text: title.textContent, rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height }, panel: { x: panelRect.x, y: panelRect.y, width: panelRect.width, height: panelRect.height }, scrollWidth: title.scrollWidth, clientWidth: title.clientWidth, layout: globalThis.document.querySelector("#fixture-shell").dataset.layout, desktopHelpDisplay: globalThis.getComputedStyle(globalThis.document.querySelector(".desktopHelp")).display, rotatePromptPresent: /rotate|landscape required/iu.test(globalThis.document.body.innerText) };
     });
-    await captureEvidence(page, "samsung-portrait-title.png");
     const fullscreenSupported = await page.evaluate(() => globalThis.document.fullscreenEnabled);
     const titleRevisionBefore = await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.readState().viewportRevision);
     let titleEntered = false; let titleExited = false; let titleRevisionAfter = titleRevisionBefore;
@@ -173,7 +172,6 @@ async function runSamsungInteraction(bytes) {
       test.stepFrames(30);
       return test.readState();
     });
-    await captureEvidence(page, "samsung-portrait-storm.png");
     await closeUpgradeIfOpen(page);
     await page.locator("#stanceBtn").tap();
     const resolveImmediate = await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.readState());
@@ -243,7 +241,6 @@ async function runSamsungInteraction(bytes) {
 
     await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.focusBoss());
     await page.waitForTimeout(50);
-    await captureEvidence(page, "samsung-portrait-boss.png");
 
     await page.locator("#pauseBtn").tap();
     const pauseBeforeFullscreen = await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.readState());
@@ -259,7 +256,6 @@ async function runSamsungInteraction(bytes) {
     await page.locator("#resumeBtn").tap();
     await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.grantXp(999));
     const upgradeVisible = await page.locator("#upgradeOverlay").isVisible();
-    await captureEvidence(page, "samsung-portrait-upgrade.png");
     await page.locator("#declineBtn").tap();
     await page.evaluate(() => {
       globalThis.__HOMEOSTASIS_TEST__.forceVictoryWindow();
@@ -270,7 +266,6 @@ async function runSamsungInteraction(bytes) {
     await captureEvidence(page, "samsung-portrait-result.png");
     await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.forceFailure());
     const failureVisible = await page.locator("#resultOverlay").isVisible();
-    await captureEvidence(page, "samsung-portrait-failure.png");
 
     checks = Object.freeze({
       boot: initial.scene === "play" && initial.buildId === "HOMEOSTASIS-VS-006-RESPONSIVE-FULLSCREEN",
@@ -364,7 +359,6 @@ async function runDesktopInteraction(bytes) {
     await page.locator("#resumeBtn").click();
     await page.keyboard.press("F3");
     const debugVisible = await page.locator("#debugText").isVisible();
-    await captureEvidence(page, "desktop-running.png");
     checks = Object.freeze({
       keyboardMovement: moved.player.x > initial.player.x,
       keyboardResolve: resolved.mode === "resolve",
