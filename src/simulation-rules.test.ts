@@ -1,0 +1,7 @@
+import { describe,expect,it } from 'vitest';
+import { bossFraction,homeostasisBand,terminalReason,tissueIntegrity,tissueState } from './simulation-rules';
+describe('authoritative HOMEOSTASIS rules',()=>{
+ it('classifies and weights tissue exactly',()=>{expect([100,75,44,0].map(hp=>tissueState({hp,debris:0}))).toEqual([0,1,2,3]);expect(tissueState({hp:0,debris:-1})).toBe(4);expect(tissueIntegrity([{hp:100,debris:0,importance:1},{hp:0,debris:-1,importance:1}])).toBe(.59);});
+ it('computes boss load and dynamic safe band',()=>{expect(bossFraction({matrixHp:1150,matrixMax:1150,coreHp:900,coreMax:900,dead:false})).toBe(1);const band=homeostasisBand(.45);expect(band.safeLow).toBeCloseTo(.224);expect(band.safeHigh).toBeCloseTo(.481);});
+ it.each([['win',{resolveHold:8,player:{hp:100},tissueIntegrity:1,stormTime:0,bacteria:[],infectionMaxTime:0},'homeostatic'],['player',{resolveHold:0,player:{hp:0},tissueIntegrity:1,stormTime:0,bacteria:[],infectionMaxTime:0},'response_core'],['tissue',{resolveHold:0,player:{hp:100},tissueIntegrity:.03,stormTime:0,bacteria:[],infectionMaxTime:0},'tissue_collapse'],['storm',{resolveHold:0,player:{hp:100},tissueIntegrity:1,stormTime:11,bacteria:[],infectionMaxTime:0},'cytokine_storm'],['infection',{resolveHold:0,player:{hp:100},tissueIntegrity:1,stormTime:0,bacteria:Array(240),infectionMaxTime:4},'infection_runaway']] as const)('%s terminal path',(_name,game,reason)=>expect(terminalReason(game)?.reason).toBe(reason));
+});

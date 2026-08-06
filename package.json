@@ -1,0 +1,20 @@
+{
+  "name": "@sfhs/example-homeostasis",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "browser-proof": "node tools/run-browser-proof.mjs"
+  },
+  "dependencies": {
+    "@sfhs/adapter-pixi-v8": "workspace:*",
+    "@sfhs/pixi-canvas-compat": "workspace:*",
+    "@sfhs/pixi-runtime": "workspace:*",
+    "pixi.js": "8.19.0"
+  },
+  "devDependencies": {
+    "@sfhs/browser-runner": "workspace:*",
+    "@sfhs/packer": "workspace:*",
+    "playwright": "1.61.1"
+  }
+}

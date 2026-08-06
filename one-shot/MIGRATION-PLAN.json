@@ -1,0 +1,70 @@
+{
+  "forbidden": [
+    "Automatic source-code migration",
+    "Candidate promotion",
+    "Remote repository actions"
+  ],
+  "historicalOnly": [],
+  "inspection": {
+    "evidence": {
+      "candidateTooling": [],
+      "canvasCreation": [
+        "src/main.ts"
+      ],
+      "customAnimationLoop": [
+        "src/main.ts"
+      ],
+      "customResizeListener": [
+        "src/main.ts"
+      ],
+      "customVisibilityListener": [
+        "src/main.ts"
+      ],
+      "directEventStateMutation": [],
+      "directPixiApplication": [],
+      "hardCodedRuntimeUrl": [],
+      "namespaceGlobals": [
+        "src/simulation-state.ts"
+      ],
+      "pixiTickerGameplay": [],
+      "semanticActions": [
+        "src/main.ts",
+        "src/simulation-mechanics.test.ts",
+        "src/simulation-mechanics.ts"
+      ]
+    },
+    "facts": {
+      "candidateTooling": "NOT_DETECTED",
+      "canvasCreation": "DETECTED",
+      "customAnimationLoop": "DETECTED",
+      "customResizeListener": "DETECTED",
+      "customVisibilityListener": "DETECTED",
+      "directEventStateMutation": "NOT_DETECTED",
+      "directPixiApplication": "NOT_DETECTED",
+      "hardCodedRuntimeUrl": "NOT_DETECTED",
+      "namespaceGlobals": "DETECTED",
+      "pixiTickerGameplay": "NOT_DETECTED",
+      "semanticActions": "DETECTED"
+    }
+  },
+  "modifiers": [
+    "MODULE_INTEGRATION_REQUIRED"
+  ],
+  "preserve": [
+    "Game rules, source history, issue records, decisions, tests, and evidence"
+  ],
+  "productRepairs": [],
+  "remoteAuthorized": false,
+  "replace": [
+    "Canonical pack, verifier, browser runner, and adapter lifecycle only when migration requires it"
+  ],
+  "rewire": [
+    "Cross-file namespace and global dependencies",
+    "Gameplay loop ownership"
+  ],
+  "schema": "sfhs.migration-plan@1",
+  "sourceId": "source-1-adaf755f8887",
+  "strategy": "DIRECT_CANONICALIZATION",
+  "targetLane": "pixi-v8",
+  "version": 1
+}

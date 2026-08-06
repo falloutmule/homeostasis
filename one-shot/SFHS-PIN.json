@@ -1,0 +1,10 @@
+{
+  "adapter": "pixi-v8",
+  "node": ">=24",
+  "pnpm": "11.9.0",
+  "schema": "sfhs.graduation-sfhs-pin@1",
+  "sfhsCommit": "fc8cbd8fc5d1dbb6bf3251d62954e8558e533619",
+  "sfhsRepository": "falloutmule/single-file-html-software",
+  "sourceProductIdentity": "b07a6992639d0b09a6394bb21f1889e235703894272328e508a74f4746702cd2",
+  "workspacePackages": []
+}

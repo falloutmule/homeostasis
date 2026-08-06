@@ -1,0 +1,14 @@
+{
+  "schema": "homeostasis.release-gate@1",
+  "artifactSha256": "4bf7dbb08f26daafe278188918a54b2b407778ada7bb5700052f3d1a25cbb201",
+  "buildId": "homeostasis-89abc747ea11",
+  "releaseStatus": "PASS",
+  "physicalDevice": {
+    "target": "Samsung Galaxy S21 Ultra / stable Android Chrome",
+    "evidenceStatus": "REPORTED",
+    "status": "PASS",
+    "evidencePath": "evidence/current/homeostasis-89abc747ea11/physical-samsung-acceptance-2026-08-06.md",
+    "reason": "Direct user acceptance report on 2026-08-06: Samsung Galaxy S21 Ultra / stable Android Chrome passed; everything was working and no bugs were seen."
+  },
+  "updatedOn": "2026-08-06"
+}
