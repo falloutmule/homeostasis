@@ -48,7 +48,7 @@ jobs:
         run: pnpm install --no-frozen-lockfile
       - name: Install Chromium for SFHS browser checks
         working-directory: sfhs
-        run: pnpm exec playwright install --with-deps chromium
+        run: node examples/homeostasis/node_modules/playwright/cli.js install --with-deps chromium
       - name: Build and verify the exact canonical artifact
         working-directory: sfhs
         run: |
