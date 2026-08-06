@@ -1,0 +1,14 @@
+{
+  "browserEvidence": "evidence/current/homeostasis-89abc747ea11/browser/report.json",
+  "canonicalArtifact": {
+    "buildId": "homeostasis-89abc747ea11",
+    "bytes": 593113,
+    "path": "dist/index.html",
+    "sha256": "4bf7dbb08f26daafe278188918a54b2b407778ada7bb5700052f3d1a25cbb201",
+    "verifier": "sfhs verify"
+  },
+  "physical": "UNTESTED",
+  "remoteActions": "not-authorized",
+  "schema": "sfhs.graduation-report@1",
+  "stage": "GRADUATION_PHYSICAL_PENDING"
+}

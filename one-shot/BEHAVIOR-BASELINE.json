@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "classification": "PRESERVE",
+      "description": "Preserve the behavior listed in the validated migration plan.",
+      "evidence": [
+        "one-shot/MIGRATION-PLAN.json"
+      ],
+      "id": "migration-plan-preservation",
+      "migrationRequirement": "Execute source, canonical browser, and physical evidence required by the plan."
+    }
+  ],
+  "schema": "sfhs.graduation-behavior-baseline@1",
+  "version": 1
+}

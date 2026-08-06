@@ -1,0 +1,36 @@
+{
+  "deferredWork": [],
+  "evidenceStatus": "UNTESTED",
+  "nextAction": "Collect canonical physical evidence and formal device metadata.",
+  "physicalStatus": "UNTESTED",
+  "productStatus": "PRODUCT_INCOMPLETE",
+  "projectRoot": ".",
+  "records": {
+    "physicalSeed": {
+      "path": "one-shot/GRADUATION-PHYSICAL-TEST-SEED.json",
+      "sha256": "d0aad2786f9b1715704ad4aeaa6326df52d5f8e8678116fb0d6bb86d70c28b7b"
+    },
+    "plan": {
+      "path": "one-shot/MIGRATION-PLAN.json",
+      "sha256": "35a8f2df3af87302f576b98b4f7fa87dfe2a6afde03a8d2fe6b3814e8712c018"
+    },
+    "report": {
+      "path": "one-shot/GRADUATION-REPORT.json",
+      "sha256": "da1f62791d1d93bcafc809af9be2da09b5515eb9a92d4aa128bc852ff83ba841"
+    },
+    "source": {
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "d87492787f29b9342605a025948335d5d03b5bb878124a54e332229b6cb428b2"
+    }
+  },
+  "requiredRepairs": [
+    "Cross-file namespace and global dependencies",
+    "Gameplay loop ownership"
+  ],
+  "schema": "sfhs.graduation-state@1",
+  "sfhsStatus": "SFHS_SOURCE_ONLY",
+  "sourceId": "source-1-adaf755f8887",
+  "stage": "GRADUATION_PHYSICAL_PENDING",
+  "strategy": "DIRECT_CANONICALIZATION",
+  "version": 1
+}

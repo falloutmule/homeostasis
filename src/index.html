@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+<meta name="theme-color" content="#071417">
+<title>HOMEOSTASIS — Immune Survivor Roguelike</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main id="fixture-shell" data-phase="ready">
+  <div id="game" role="img" aria-label="HOMEOSTASIS immune-system survivor game"></div>
+
+  <section id="hud" aria-live="polite">
+    <div class="hudBox">
+      <div class="hudTitle"><span>Tissue integrity</span><b id="tissueText">100%</b></div>
+      <div class="bar"><i id="tissueFill"></i></div>
+    </div>
+    <div class="hudBox">
+      <div class="hudTitle"><span>Response window</span><b id="responseText">18%</b></div>
+      <div id="responseGauge"><i id="safeBand"></i><i id="responseNeedle"></i></div>
+      <div id="responseStatus">ENGAGED · ATTACKS ACTIVE</div>
+    </div>
+    <div class="hudBox">
+      <div class="hudTitle"><span>Pathogen load</span><b id="pathogenText">0%</b></div>
+      <div class="bar"><i id="pathogenFill"></i></div>
+    </div>
+    <div id="hint">WASD / arrows move · Space changes response · F3 debug</div>
+  </section>
+
+  <section id="mobileControls" aria-label="Game controls">
+    <button id="pauseBtn" class="touchBtn" aria-label="Pause game">Ⅱ</button>
+    <button id="stanceBtn" class="touchBtn" aria-label="Current mode engaged. Tap to resolve."><span class="stanceState">ENGAGED</span><small>Tap to Resolve</small></button>
+    <div id="joystick"></div>
+  </section>
+
+  <section id="titleOverlay" class="overlay">
+    <div class="panel">
+      <div class="kicker">Single-file immune survivor roguelike</div>
+      <h1>HOMEOSTASIS</h1>
+      <p class="lead">Destroy the biofilm without destroying the host. <span class="tagline">Power is useful only while the threat justifies it.</span> Escalate in <b>Engage</b>, then switch to <b>Resolve</b> to clear debris, calm inflammation, and preserve living tissue.</p>
+      <div class="controlsGrid desktopHelp">
+        <div class="controlNote"><strong>Move</strong>WASD, arrows, or left-thumb drag.</div>
+        <div class="controlNote"><strong>Change response</strong>Space or the large stance button.</div>
+        <div class="controlNote"><strong>Win</strong>Destroy the Biofilm Nidus, clear pathogens, then hold a safe response for 8 seconds.</div>
+      </div>
+      <div class="buttonRow">
+        <button id="fixture-start" class="primary">Begin response</button>
+        <button id="titleFullscreenBtn" class="secondary fullscreenBtn" type="button">Enter Fullscreen</button>
+      </div>
+      <p id="capabilityStatus" class="capabilityStatus" role="status" hidden></p>
+      <p class="kicker buildKicker">Build HOMEOSTASIS-VS-006-RESPONSIVE-FULLSCREEN · procedural vector graphics · no external assets</p>
+    </div>
+  </section>
+
+  <section id="upgradeOverlay" class="overlay" hidden>
+    <div class="panel">
+      <div class="kicker">Antigen threshold reached</div>
+      <h2>Differentiate the response</h2>
+      <p style="color:#c8e8df">Every pathway changes the ecology of the run. Aggression can save the host now and destroy it later.</p>
+      <div id="upgradeCards" class="cards"></div>
+      <div class="buttonRow"><button id="declineBtn" class="secondary">Decline and stabilize</button></div>
+    </div>
+  </section>
+
+  <section id="pauseOverlay" class="overlay" hidden>
+    <div class="panel" style="max-width:520px">
+      <div class="kicker">Simulation paused</div><h2>Response suspended</h2>
+      <div class="buttonRow"><button id="resumeBtn" class="primary">Resume</button><button id="pauseFullscreenBtn" class="secondary fullscreenBtn" type="button">Enter Fullscreen</button><button id="pauseMuteBtn" class="secondary">Mute audio</button><button id="restartFromPauseBtn" class="secondary">Restart run</button></div>
+    </div>
+  </section>
+
+  <section id="resultOverlay" class="overlay" hidden>
+    <div class="panel" style="max-width:760px">
+      <div id="resultKicker" class="kicker">Run complete</div>
+      <h2 id="resultTitle">Homeostatic Clearance</h2>
+      <p id="resultSummary" class="lead"></p>
+      <div id="resultGrid" class="resultGrid"></div>
+      <div class="buttonRow"><button id="restartBtn" class="primary">Begin another response</button></div>
+    </div>
+  </section>
+
+  <pre id="debugText"></pre>
+</main>
+
+<script type="module" src="./main.ts"></script>
+</body>
+</html>

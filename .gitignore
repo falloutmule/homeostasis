@@ -1,0 +1,9 @@
+dist/
+node_modules/
+.sfhs-evidence/
+test-results/
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example

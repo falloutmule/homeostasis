@@ -1,0 +1,69 @@
+name: Deploy verified HOMEOSTASIS Pages artifact
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: homeostasis-pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: game
+      - uses: actions/configure-pages@v5
+      - uses: actions/checkout@v4
+        with:
+          repository: falloutmule/single-file-html-software
+          ref: fc8cbd8fc5d1dbb6bf3251d62954e8558e533619
+          path: sfhs
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.16.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: sfhs/pnpm-lock.yaml
+      - name: Stage the exact game revision in the pinned SFHS workspace
+        run: |
+          mkdir -p sfhs/examples/homeostasis
+          git -C game archive --format=tar HEAD | tar -x -C sfhs/examples/homeostasis
+      - name: Install pinned workspace dependencies
+        working-directory: sfhs
+        run: pnpm install --no-frozen-lockfile
+      - name: Build and verify the exact canonical artifact
+        working-directory: sfhs
+        run: |
+          pnpm sfhs inspect --json --project examples/homeostasis
+          pnpm sfhs validate --json --project examples/homeostasis
+          pnpm sfhs check --json --project examples/homeostasis
+          pnpm sfhs pack --json --project examples/homeostasis
+          pnpm sfhs verify --json --project examples/homeostasis
+          node examples/homeostasis/tools/run-browser-proof.mjs
+      - name: Require exact physical Samsung release acceptance
+        run: node game/tools/verify-release-gate.mjs --artifact sfhs/examples/homeostasis/dist/index.html --gate game/releases/manifests/release-gate.json
+      - name: Prepare Pages-only artifact
+        run: |
+          mkdir pages
+          cp sfhs/examples/homeostasis/dist/index.html pages/index.html
+          touch pages/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: pages
+      - id: deployment
+        uses: actions/deploy-pages@v4

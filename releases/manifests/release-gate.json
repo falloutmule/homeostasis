@@ -1,0 +1,14 @@
+{
+  "schema": "homeostasis.release-gate@1",
+  "artifactSha256": "4bf7dbb08f26daafe278188918a54b2b407778ada7bb5700052f3d1a25cbb201",
+  "buildId": "homeostasis-89abc747ea11",
+  "releaseStatus": "BLOCKED",
+  "physicalDevice": {
+    "target": "Samsung Galaxy S21 Ultra / stable Android Chrome",
+    "evidenceStatus": "UNTESTED",
+    "status": "BLOCKED",
+    "evidencePath": null,
+    "reason": "Direct physical-device acceptance has not been performed. Chromium device emulation is not a substitute."
+  },
+  "updatedOn": "2026-08-06"
+}

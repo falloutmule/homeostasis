@@ -1,0 +1,33 @@
+{
+  "schema": "homeostasis.candidate-manifest@1",
+  "status": "VERIFIED_AUTOMATED_PHYSICAL_PENDING",
+  "buildId": "homeostasis-89abc747ea11",
+  "artifact": {
+    "path": "dist/index.html",
+    "bytes": 593113,
+    "sha256": "4bf7dbb08f26daafe278188918a54b2b407778ada7bb5700052f3d1a25cbb201"
+  },
+  "source": {
+    "repository": "falloutmule/homeostasis",
+    "branch": "agent/homeostasis-sfhs-graduation",
+    "authority": "source-1-adaf755f8887",
+    "sourceSha256": "89abc747ea11d90c2f844db90ca2b64efeb06d71d8799824ec585b67397ab90e"
+  },
+  "toolchain": {
+    "sfhsRepository": "falloutmule/single-file-html-software",
+    "sfhsCommit": "fc8cbd8fc5d1dbb6bf3251d62954e8558e533619",
+    "adapter": "pixi-v8"
+  },
+  "automatedVerification": {
+    "date": "2026-08-06",
+    "browserEvidence": "evidence/current/homeostasis-89abc747ea11/browser/report.json",
+    "targets": [
+      "Samsung Galaxy S21 Ultra Android Chrome emulation (portrait)",
+      "Samsung Galaxy S21 Ultra Android Chrome emulation (landscape)",
+      "desktop Chromium"
+    ],
+    "result": "PASS"
+  },
+  "physicalDeviceAcceptance": "UNTESTED",
+  "publication": "BLOCKED_PENDING_PHYSICAL_SAMSUNG"
+}

@@ -1,0 +1,16 @@
+{
+  "findings": [],
+  "inputs": [],
+  "schema": "sfhs.graduation-intake@1",
+  "sourceCandidates": [
+    {
+      "authority": "AUTHORITATIVE",
+      "id": "source-1-adaf755f8887",
+      "input": "SOURCE-IDENTITY.json",
+      "reason": "Imported source identity selected by the validated migration plan.",
+      "root": "."
+    }
+  ],
+  "stage": "GRADUATION_IMPORTED",
+  "version": 1
+}
