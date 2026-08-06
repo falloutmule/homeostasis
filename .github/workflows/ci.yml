@@ -38,6 +38,9 @@ jobs:
       - name: Install pinned workspace dependencies
         working-directory: sfhs
         run: pnpm install --no-frozen-lockfile
+      - name: Install Chromium for SFHS browser checks
+        working-directory: sfhs
+        run: pnpm exec playwright install --with-deps chromium
       - name: Inspect, validate, check, pack, and exactly verify
         working-directory: sfhs
         run: |
