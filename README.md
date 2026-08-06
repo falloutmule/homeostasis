@@ -2,17 +2,17 @@
 
 > A mobile-first immune-system survivor game: clear pathogens without letting the response destroy the tissue it is meant to protect.
 
-[Play the current GitHub Pages release](https://falloutmule.github.io/homeostasis/)
+[Play HOMEOSTASIS](https://falloutmule.github.io/homeostasis/)
 
 ![HOMEOSTASIS in Samsung S21 Ultra portrait Chromium emulation](evidence/current/homeostasis-89abc747ea11/browser/samsung-portrait-gameplay.png)
 
 ## Status
 
-The repository’s authoritative editable source has completed SFHS pack, exact verification, and automated Samsung Galaxy S21 Ultra Android Chrome emulation plus desktop Chromium testing. A real Samsung Galaxy S21 Ultra / stable Android Chrome acceptance is still required before the new artifact may replace the live Pages build. The Play link therefore intentionally serves the retained previous release.
+The authoritative editable source has completed SFHS pack, exact verification, automated Samsung Galaxy S21 Ultra Android Chrome emulation, desktop Chromium testing, and a direct user-reported Samsung Galaxy S21 Ultra / stable Android Chrome PASS. The current artifact is authorized for guarded Pages promotion; until that workflow succeeds, the Play link serves the retained previous release.
 
 - Primary target: Samsung Galaxy S21 Ultra, stable Android Chrome; portrait-first adaptive layout, landscape supported.
 - Secondary target: desktop Chromium.
-- Current local artifact: `homeostasis-89abc747ea11` — 593,113 bytes — SHA-256 `4bf7dbb08f26daafe278188918a54b2b407778ada7bb5700052f3d1a25cbb201` — verified 2026-08-06.
+- Current candidate artifact: `homeostasis-89abc747ea11` — 593,113 bytes — SHA-256 `4bf7dbb08f26daafe278188918a54b2b407778ada7bb5700052f3d1a25cbb201` — verified 2026-08-06.
 - Current Pages artifact: `homeostasis-f9724aa9fefe` — SHA-256 `97207cfa05ce4ae4db61677438b344d4a0c6ac528fcaed336ba483e268d47d6d` — [Pages URL](https://falloutmule.github.io/homeostasis/).
 
 ## How it plays
@@ -25,13 +25,13 @@ Move the response core through tissue and engage nearby pathogens. Clearing path
 | Desktop | WASD / arrow keys move; Space switches stance; Escape pauses; F3 toggles diagnostics. |
 | Both | The title and Pause screens offer fullscreen; Pause offers mute/unmute and restart. |
 
-Implemented features include fixed-step seeded simulation, Engage/Resolve risk management, boss and pathogen systems, upgrades, tissue damage/repair, procedural visuals, synthesized audio, pause/fullscreen handling, and optional local settings persistence. The current limitation is release evidence: automated device emulation is passing, but direct physical Samsung acceptance is not yet recorded.
+Implemented features include fixed-step seeded simulation, Engage/Resolve risk management, boss and pathogen systems, upgrades, tissue damage/repair, procedural visuals, synthesized audio, pause/fullscreen handling, and optional local settings persistence. Direct physical acceptance is recorded as a user-reported PASS with no bugs seen; unreported device-version and measurement details are not inferred.
 
 ## Source, artifact, and verification
 
 Editable source lives in `src/`, `public/`, `sfhs.project.json`, and `package.json`. `dist/index.html` is produced only by the pinned SFHS packer and must never be hand-edited. The root `index.html` is a retained previous Pages artifact, not source. `one-shot/` records source lineage and graduation decisions.
 
-The exact test order is SFHS `inspect`, `validate`, `check`, `pack`, `verify`, then the exact-artifact Chromium proof. That proof validates Samsung S21 Ultra portrait and landscape emulation first, followed by desktop Chromium, checks controls/lifecycle/storage/renderer/network boundaries, and retains screenshots and JSON evidence. GitHub Pages will be moved to the Action workflow only after a physical Samsung PASS for the matching SHA-256; its release gate prevents a misleading deployment.
+The test order is SFHS `inspect`, `validate`, `check`, `pack`, `verify`, then the exact-artifact Chromium proof. That proof validates Samsung S21 Ultra portrait and landscape emulation first, followed by desktop Chromium, checks controls/lifecycle/storage/renderer/network boundaries, and retains screenshots and JSON evidence. The matching physical Samsung report is recorded separately. GitHub Pages moves to the Action workflow only after that matching report and the release-gate hash check pass.
 
 ## Local development
 
@@ -63,4 +63,4 @@ The CI workflow is the canonical staging reference. See [Testing](docs/TESTING.m
 
 ## Roadmap and rights
 
-The only recovered approved work is physical Samsung acceptance followed by exact Action-based Pages promotion. A reuse license is possible only with an explicit owner decision; this repository does not grant one. See [ROADMAP.md](docs/ROADMAP.md), [RIGHTS.md](RIGHTS.md), and [third-party notices](THIRD_PARTY_NOTICES.md).
+The only recovered approved release work is exact Action-based Pages promotion of the physically accepted artifact. A reuse license is possible only with an explicit owner decision; this repository does not grant one. See [ROADMAP.md](docs/ROADMAP.md), [RIGHTS.md](RIGHTS.md), and [third-party notices](THIRD_PARTY_NOTICES.md).

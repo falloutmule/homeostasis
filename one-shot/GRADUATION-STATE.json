@@ -1,8 +1,8 @@
 {
   "deferredWork": [],
-  "evidenceStatus": "UNTESTED",
-  "nextAction": "Collect canonical physical evidence and formal device metadata.",
-  "physicalStatus": "UNTESTED",
+  "evidenceStatus": "REPORTED",
+  "nextAction": "Merge the accepted candidate and run the guarded Pages deployment.",
+  "physicalStatus": "PASS",
   "productStatus": "PRODUCT_INCOMPLETE",
   "projectRoot": ".",
   "records": {
@@ -30,7 +30,7 @@
   "schema": "sfhs.graduation-state@1",
   "sfhsStatus": "SFHS_SOURCE_ONLY",
   "sourceId": "source-1-adaf755f8887",
-  "stage": "GRADUATION_PHYSICAL_PENDING",
+  "stage": "GRADUATION_PAGES_PENDING",
   "strategy": "DIRECT_CANONICALIZATION",
   "version": 1
 }

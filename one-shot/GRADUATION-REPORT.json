@@ -7,8 +7,9 @@
     "sha256": "4bf7dbb08f26daafe278188918a54b2b407778ada7bb5700052f3d1a25cbb201",
     "verifier": "sfhs verify"
   },
-  "physical": "UNTESTED",
-  "remoteActions": "not-authorized",
+  "physical": "REPORTED PASS",
+  "physicalEvidence": "evidence/current/homeostasis-89abc747ea11/physical-samsung-acceptance-2026-08-06.md",
+  "remoteActions": "authorized",
   "schema": "sfhs.graduation-report@1",
-  "stage": "GRADUATION_PHYSICAL_PENDING"
+  "stage": "GRADUATION_PAGES_PENDING"
 }

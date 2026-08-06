@@ -6,7 +6,7 @@ No gameplay expansion was recovered from authoritative project materials. The en
 
 | Item | Intent and player-visible result | Dependencies | Status | Acceptance | Authority |
 | --- | --- | --- | --- | --- | --- |
-| Direct Samsung release check | Confirm the current exact artifact feels and functions correctly on stable Android Chrome. | Access to Samsung Galaxy S21 Ultra and documented physical test run. | BLOCKED | Portrait and landscape PASS, no release-blocking issue, evidence tied to artifact SHA-256. | Approved release contract |
+| Direct Samsung release check | Confirm the current exact artifact feels and functions correctly on stable Android Chrome. | Direct user acceptance report. | VERIFIED | REPORTED PASS: everything working and no bugs seen, tied to the candidate SHA-256. | Approved release contract |
 
 ## Next
 

@@ -14,4 +14,6 @@ The release command order is `inspect`, `validate`, `check`, `pack`, `verify`, a
 
 Current candidate: 593,113 bytes; SHA-256 `4bf7dbb08f26daafe278188918a54b2b407778ada7bb5700052f3d1a25cbb201`; source SHA-256 `89abc747ea11d90c2f844db90ca2b64efeb06d71d8799824ec585b67397ab90e`. Evidence is in `evidence/current/homeostasis-89abc747ea11/browser/`.
 
-Physical Samsung acceptance remains mandatory and is currently BLOCKED. A passing automated browser report must never be relabeled as physical acceptance. The Pages gate refuses deployment until a human-authored physical result with the same artifact SHA-256 records `REPORTED` and `PASS`.
+| Physical Samsung Galaxy S21 Ultra / stable Android Chrome | REPORTED PASS | Direct user acceptance report for the matching artifact: everything working and no bugs seen. The report does not provide device-version, viewport, screenshot, audio, or thermal detail, so none is claimed. |
+
+The physical report is `evidence/current/homeostasis-89abc747ea11/physical-samsung-acceptance-2026-08-06.md`. It is distinct from the passing automated browser report. The Pages gate now accepts this exact artifact only when its SHA-256 still matches the manifest.
