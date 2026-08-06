@@ -127,29 +127,29 @@
       "titleEntered": true,
       "titleExited": true,
       "titleRevisionBefore": 2,
-      "titleRevisionAfter": 7,
+      "titleRevisionAfter": 8,
       "pauseEntered": true,
       "pauseExited": true,
       "pauseBefore": {
         "buildId": "HOMEOSTASIS-VS-006-RESPONSIVE-FULLSCREEN",
         "scene": "pause",
-        "seed": "HOST-MSHEYY4A",
-        "time": 12.30000000000019,
-        "ticks": 738,
+        "seed": "HOST-MSHFVEHJ",
+        "time": 12.116666666666848,
+        "ticks": 727,
         "mode": "resolve",
         "player": {
           "x": 1300,
           "y": 600,
           "hp": 100
         },
-        "bacteria": 49,
+        "bacteria": 41,
         "bossFraction": 1,
         "bossDead": false,
-        "inflammation": 0.10077690833331004,
-        "safeLow": 0.2750293333333333,
-        "safeHigh": 0.5734906666666666,
-        "tissueIntegrity": 0.9518367035624622,
-        "xp": 5,
+        "inflammation": 0.07410998333331442,
+        "safeLow": 0.2651306666666667,
+        "safeHigh": 0.5555493333333333,
+        "tissueIntegrity": 0.9538283225260074,
+        "xp": 10,
         "level": 0,
         "upgrades": {},
         "result": null,
@@ -172,23 +172,23 @@
       "pauseAfter": {
         "buildId": "HOMEOSTASIS-VS-006-RESPONSIVE-FULLSCREEN",
         "scene": "pause",
-        "seed": "HOST-MSHEYY4A",
-        "time": 12.30000000000019,
-        "ticks": 738,
+        "seed": "HOST-MSHFVEHJ",
+        "time": 12.116666666666848,
+        "ticks": 727,
         "mode": "resolve",
         "player": {
           "x": 1300,
           "y": 600,
           "hp": 100
         },
-        "bacteria": 49,
+        "bacteria": 41,
         "bossFraction": 1,
         "bossDead": false,
-        "inflammation": 0.10077690833331004,
-        "safeLow": 0.2750293333333333,
-        "safeHigh": 0.5734906666666666,
-        "tissueIntegrity": 0.9518367035624622,
-        "xp": 5,
+        "inflammation": 0.07410998333331442,
+        "safeLow": 0.2651306666666667,
+        "safeHigh": 0.5555493333333333,
+        "tissueIntegrity": 0.9538283225260074,
+        "xp": 10,
         "level": 0,
         "upgrades": {},
         "result": null,
@@ -246,7 +246,7 @@
       }
     },
     "requests": [
-      "http://127.0.0.1:60068/index.html"
+      "http://127.0.0.1:55834/index.html"
     ],
     "browserSignals": [],
     "findings": [],
@@ -265,7 +265,7 @@
       "noFindings": true
     },
     "requests": [
-      "http://127.0.0.1:62324/index.html"
+      "http://127.0.0.1:51657/index.html"
     ],
     "browserSignals": [],
     "findings": [],
