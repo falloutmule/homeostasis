@@ -83,6 +83,10 @@ async function closeUpgradeIfOpen(page) {
   }
 }
 
+async function captureEvidence(page, fileName) {
+  await page.screenshot({ path: join(evidenceRoot, fileName), scale: "css" });
+}
+
 async function runSamsungInteraction(bytes) {
   const server = await startExactArtifactServer(bytes);
   const browser = await chromium.launch({ headless: true, args: chromiumWebglArgs });
@@ -129,7 +133,7 @@ async function runSamsungInteraction(bytes) {
       const rect = title.getBoundingClientRect(); const panelRect = panel.getBoundingClientRect();
       return { text: title.textContent, rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height }, panel: { x: panelRect.x, y: panelRect.y, width: panelRect.width, height: panelRect.height }, scrollWidth: title.scrollWidth, clientWidth: title.clientWidth, layout: globalThis.document.querySelector("#fixture-shell").dataset.layout, desktopHelpDisplay: globalThis.getComputedStyle(globalThis.document.querySelector(".desktopHelp")).display, rotatePromptPresent: /rotate|landscape required/iu.test(globalThis.document.body.innerText) };
     });
-    await page.screenshot({ path: join(evidenceRoot, "samsung-portrait-title.png") });
+    await captureEvidence(page, "samsung-portrait-title.png");
     const fullscreenSupported = await page.evaluate(() => globalThis.document.fullscreenEnabled);
     const titleRevisionBefore = await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.readState().viewportRevision);
     let titleEntered = false; let titleExited = false; let titleRevisionAfter = titleRevisionBefore;
@@ -146,7 +150,7 @@ async function runSamsungInteraction(bytes) {
     await page.waitForFunction(() => globalThis.CR?.getSnapshot().ticks >= 5);
 
     const initial = await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.readState());
-    await page.screenshot({ path: join(evidenceRoot, "samsung-portrait-gameplay.png") });
+    await captureEvidence(page, "samsung-portrait-gameplay.png");
     renderEvidence = await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.readRenderProbe());
     const contextEvidence = await page.evaluate(() => globalThis.__SFHS_CONTEXT_AUDIT__.snapshot());
     const cdp = await context.newCDPSession(page);
@@ -169,7 +173,7 @@ async function runSamsungInteraction(bytes) {
       test.stepFrames(30);
       return test.readState();
     });
-    await page.screenshot({ path: join(evidenceRoot, "samsung-portrait-storm.png") });
+    await captureEvidence(page, "samsung-portrait-storm.png");
     await closeUpgradeIfOpen(page);
     await page.locator("#stanceBtn").tap();
     const resolveImmediate = await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.readState());
@@ -235,11 +239,11 @@ async function runSamsungInteraction(bytes) {
       const buttonAt = (rect) => globalThis.document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2)?.closest("button")?.id ?? null;
       return { stanceTarget: buttonAt(stance), pauseTarget: buttonAt(pause), layout: globalThis.document.querySelector("#fixture-shell").dataset.layout };
     });
-    await page.screenshot({ path: join(evidenceRoot, "samsung-portrait-resolve.png") });
+    await captureEvidence(page, "samsung-portrait-resolve.png");
 
     await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.focusBoss());
     await page.waitForTimeout(50);
-    await page.screenshot({ path: join(evidenceRoot, "samsung-portrait-boss.png") });
+    await captureEvidence(page, "samsung-portrait-boss.png");
 
     await page.locator("#pauseBtn").tap();
     const pauseBeforeFullscreen = await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.readState());
@@ -255,7 +259,7 @@ async function runSamsungInteraction(bytes) {
     await page.locator("#resumeBtn").tap();
     await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.grantXp(999));
     const upgradeVisible = await page.locator("#upgradeOverlay").isVisible();
-    await page.screenshot({ path: join(evidenceRoot, "samsung-portrait-upgrade.png") });
+    await captureEvidence(page, "samsung-portrait-upgrade.png");
     await page.locator("#declineBtn").tap();
     await page.evaluate(() => {
       globalThis.__HOMEOSTASIS_TEST__.forceVictoryWindow();
@@ -263,10 +267,10 @@ async function runSamsungInteraction(bytes) {
     });
     const resultState = await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.readState());
     resultEvidence = Object.freeze({ scene: resultState.scene, result: resultState.result });
-    await page.screenshot({ path: join(evidenceRoot, "samsung-portrait-result.png") });
+    await captureEvidence(page, "samsung-portrait-result.png");
     await page.evaluate(() => globalThis.__HOMEOSTASIS_TEST__.forceFailure());
     const failureVisible = await page.locator("#resultOverlay").isVisible();
-    await page.screenshot({ path: join(evidenceRoot, "samsung-portrait-failure.png") });
+    await captureEvidence(page, "samsung-portrait-failure.png");
 
     checks = Object.freeze({
       boot: initial.scene === "play" && initial.buildId === "HOMEOSTASIS-VS-006-RESPONSIVE-FULLSCREEN",
@@ -360,7 +364,7 @@ async function runDesktopInteraction(bytes) {
     await page.locator("#resumeBtn").click();
     await page.keyboard.press("F3");
     const debugVisible = await page.locator("#debugText").isVisible();
-    await page.screenshot({ path: join(evidenceRoot, "desktop-running.png") });
+    await captureEvidence(page, "desktop-running.png");
     checks = Object.freeze({
       keyboardMovement: moved.player.x > initial.player.x,
       keyboardResolve: resolved.mode === "resolve",

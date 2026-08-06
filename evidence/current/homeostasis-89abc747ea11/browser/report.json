@@ -133,22 +133,22 @@
       "pauseBefore": {
         "buildId": "HOMEOSTASIS-VS-006-RESPONSIVE-FULLSCREEN",
         "scene": "pause",
-        "seed": "HOST-MSHG4R33",
-        "time": 12.03333333333351,
-        "ticks": 722,
+        "seed": "HOST-MSHGD6O0",
+        "time": 9.500000000000052,
+        "ticks": 570,
         "mode": "resolve",
         "player": {
           "x": 1300,
           "y": 600,
           "hp": 100
         },
-        "bacteria": 46,
+        "bacteria": 39,
         "bossFraction": 1,
         "bossDead": false,
-        "inflammation": 0.09067309166664847,
-        "safeLow": 0.27131733333333335,
-        "safeHigh": 0.5667626666666666,
-        "tissueIntegrity": 0.9546980037259966,
+        "inflammation": 0.23507319166664642,
+        "safeLow": 0.262656,
+        "safeHigh": 0.551064,
+        "tissueIntegrity": 0.9655830051034838,
         "xp": 10,
         "level": 0,
         "upgrades": {},
@@ -172,22 +172,22 @@
       "pauseAfter": {
         "buildId": "HOMEOSTASIS-VS-006-RESPONSIVE-FULLSCREEN",
         "scene": "pause",
-        "seed": "HOST-MSHG4R33",
-        "time": 12.03333333333351,
-        "ticks": 722,
+        "seed": "HOST-MSHGD6O0",
+        "time": 9.500000000000052,
+        "ticks": 570,
         "mode": "resolve",
         "player": {
           "x": 1300,
           "y": 600,
           "hp": 100
         },
-        "bacteria": 46,
+        "bacteria": 39,
         "bossFraction": 1,
         "bossDead": false,
-        "inflammation": 0.09067309166664847,
-        "safeLow": 0.27131733333333335,
-        "safeHigh": 0.5667626666666666,
-        "tissueIntegrity": 0.9546980037259966,
+        "inflammation": 0.23507319166664642,
+        "safeLow": 0.262656,
+        "safeHigh": 0.551064,
+        "tissueIntegrity": 0.9655830051034838,
         "xp": 10,
         "level": 0,
         "upgrades": {},
@@ -227,9 +227,9 @@
       "state": {
         "buildId": "HOMEOSTASIS-VS-006-RESPONSIVE-FULLSCREEN",
         "scene": "play",
-        "seed": "HOST-MSHG4R33",
-        "time": 7.566666666666645,
-        "ticks": 454,
+        "seed": "HOST-MSHGD6O0",
+        "time": 6.766666666666648,
+        "ticks": 406,
         "mode": "resolve",
         "player": {
           "x": 381.25,
@@ -239,10 +239,10 @@
         "bacteria": 36,
         "bossFraction": 1,
         "bossDead": false,
-        "inflammation": 0.5872470583333166,
+        "inflammation": 0.5413999999999809,
         "safeLow": 0.25894399999999995,
         "safeHigh": 0.5443359999999999,
-        "tissueIntegrity": 0.9700017938472933,
+        "tissueIntegrity": 0.9754384847381654,
         "xp": 10,
         "level": 0,
         "upgrades": {},
@@ -290,7 +290,7 @@
       },
       "webglSurface": true,
       "visibleCanvasCount": 1,
-      "meaningfulObjectCount": 134,
+      "meaningfulObjectCount": 136,
       "destroyed": false,
       "webgl": {
         "contextLost": false,
@@ -302,7 +302,7 @@
       }
     },
     "requests": [
-      "http://127.0.0.1:50350/index.html"
+      "http://127.0.0.1:57485/index.html"
     ],
     "browserSignals": [],
     "findings": [],
@@ -321,7 +321,7 @@
       "noFindings": true
     },
     "requests": [
-      "http://127.0.0.1:58917/index.html"
+      "http://127.0.0.1:57992/index.html"
     ],
     "browserSignals": [],
     "findings": [],
