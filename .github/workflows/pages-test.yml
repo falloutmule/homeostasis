@@ -72,6 +72,7 @@ jobs:
           retention-days: 14
       - name: Prepare public artifact and prior-release rollback
         run: |
+          echo '97207cfa05ce4ae4db61677438b344d4a0c6ac528fcaed336ba483e268d47d6d  release/releases/2026-10-07-before/index.html' | sha256sum --check --strict
           mkdir -p pages/releases/2026-10-07-before
           cp sfhs/examples/homeostasis/dist/index.html pages/index.html
           cp release/RELEASE.json pages/RELEASE.json
