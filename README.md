@@ -17,17 +17,17 @@ Play: https://falloutmule.github.io/homeostasis/
 ## Release artifact
 
 GitHub Pages serves the root `index.html`. It is the exact, self-contained SFHS
-artifact verified on 2026-07-24; it makes no runtime network requests beyond the
+artifact rebuilt and verified on 2026-10-07; it makes no runtime network requests beyond the
 document itself.
 
-- Build ID: `homeostasis-f9724aa9fefe`
-- SHA-256: `97207cfa05ce4ae4db61677438b344d4a0c6ac528fcaed336ba483e268d47d6d`
-- Bytes: `592964`
+- Build ID: `homeostasis-89abc747ea11`
+- SHA-256: `4bf7dbb08f26daafe278188918a54b2b407778ada7bb5700052f3d1a25cbb201`
+- Bytes: `593113`
 
 Do not hand-edit `index.html`. Rebuild and reverify through the SFHS import
 workflow before replacing it.
 
-See `GITHUB-PAGES-RELEASE.md` for the live deployment proof.
+The Actions deployment rebuilds pinned public source, runs all SFHS and browser checks, and requires the recorded exact-artifact physical Samsung release gate. The previous release remains at `releases/2026-10-07-before/index.html`. See `GITHUB-PAGES-RELEASE.md` for release provenance.
 
 ## License
 

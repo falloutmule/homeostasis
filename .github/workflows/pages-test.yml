@@ -1,0 +1,86 @@
+name: Verify and deploy HOMEOSTASIS test release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: homeostasis-pages
+  cancel-in-progress: true
+
+jobs:
+  verify-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: release
+      - uses: actions/checkout@v4
+        with:
+          repository: falloutmule/homeostasis
+          ref: e7e6975d83c9a2b255cac381dba6c3d19f27612e
+          path: game
+      - uses: actions/checkout@v4
+        with:
+          repository: falloutmule/single-file-html-software
+          ref: fc8cbd8fc5d1dbb6bf3251d62954e8558e533619
+          path: sfhs
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.9.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Stage pinned source with its declared canonical line endings
+        run: |
+          mkdir -p sfhs/examples/homeostasis
+          git -C game archive --format=tar HEAD | tar -x -C sfhs/examples/homeostasis
+          node release/tools/normalize-build-inputs.mjs sfhs/examples/homeostasis
+      - name: Install pinned toolchain and Chromium
+        working-directory: sfhs
+        run: |
+          pnpm install --no-frozen-lockfile
+          node examples/homeostasis/node_modules/playwright/cli.js install --with-deps chromium
+      - name: Verify and browser-test the exact artifact
+        working-directory: sfhs
+        run: |
+          pnpm sfhs inspect --json --project examples/homeostasis
+          pnpm sfhs validate --json --project examples/homeostasis
+          pnpm sfhs check --json --project examples/homeostasis
+          pnpm sfhs pack --json --project examples/homeostasis
+          pnpm sfhs verify --json --project examples/homeostasis
+          node examples/homeostasis/tools/run-browser-proof.mjs
+          node examples/homeostasis/tools/verify-release-gate.mjs --artifact examples/homeostasis/dist/index.html --gate examples/homeostasis/releases/manifests/release-gate.json
+          cmp examples/homeostasis/dist/index.html ../release/index.html
+      - name: Preserve browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: homeostasis-browser-evidence
+          path: sfhs/.sfhs-evidence/homeostasis-import
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Prepare public artifact and prior-release rollback
+        run: |
+          mkdir -p pages/releases/2026-10-07-before
+          cp sfhs/examples/homeostasis/dist/index.html pages/index.html
+          cp release/RELEASE.json pages/RELEASE.json
+          cp release/THIRD_PARTY_NOTICES.md release/NOTICE.md pages/
+          cp release/releases/2026-10-07-before/* pages/releases/2026-10-07-before/
+          touch pages/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: pages
+      - id: deployment
+        uses: actions/deploy-pages@v4

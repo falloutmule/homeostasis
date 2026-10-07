@@ -1,3 +1,15 @@
+# HOMEOSTASIS test publication — 2026-10-07
+
+The current candidate is `homeostasis-89abc747ea11` (593,113 bytes; SHA-256 `4bf7dbb08f26daafe278188918a54b2b407778ada7bb5700052f3d1a25cbb201`). It is rebuilt from public source `e7e6975d83c9a2b255cac381dba6c3d19f27612e` with SFHS `fc8cbd8fc5d1dbb6bf3251d62954e8558e533619`.
+
+Local inspect, validate, check, pack, exact verification, Samsung emulation, desktop Chromium, and the exact physical-release gate passed. The deployment repeats these checks before publishing. The physical PASS is the existing direct user report dated 2026-08-06 for these exact bytes; no new physical test is claimed. Canonical LF staging reproduces that artifact without changing gameplay. pnpm 11.9.0 matches the pinned toolchain package-manager contract.
+
+The previous root release is retained byte-for-byte at `releases/2026-10-07-before/index.html`, along with its original release manifest. Source graduation remains on its existing branch; this release commits only delivery artifacts and verification/deployment wiring. No access policy is changed.
+
+The following historical record is preserved for the prior release.
+
+---
+
 # HOMEOSTASIS GitHub Pages publication record
 
 Date: 2026-07-24

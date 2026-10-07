@@ -1,0 +1,4 @@
+/index.html -text
+/releases/**/index.html -text
+*.mjs text eol=lf
+*.yml text eol=lf
